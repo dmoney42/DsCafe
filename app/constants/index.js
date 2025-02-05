@@ -39,5 +39,16 @@ export const coffeeItems = [
         desc: "The taste of coffee can vary depending on factors such as the type of beans, roast etc...",
     },
 
+    {
+        id: 2,
+        name: 'Black Coffee',
+        price: '25.50',
+        volume: '116 ml',
+        stars: '4.6',
+        //image: require('../assets/images/coffe1.png'),
+        desc: "The taste of coffee can vary depending on factors such as the type of beans, roast etc...",
+    },
+
+
 
 ]
