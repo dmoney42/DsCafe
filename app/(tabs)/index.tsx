@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, FlatList} from 'react-native';
 import styles from './HomeScreen.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {MagnifyingGlassIcon, MapPinIcon} from 'react-native-heroicons/solid';
-import {BellIcon} from 'react-native-heroicons/outline'
-import { FlatList, TextInput } from 'react-native-gesture-handler';
-import {categories} from '../constants';
+import {BellIcon} from 'react-native-heroicons/outline';
+import {categories} from '../data/index';
 
 const HomeScreen = () => {
   return (
@@ -48,6 +47,15 @@ const HomeScreen = () => {
                         data={categories}
                         keyExtractor={item=> item.id}
                         //className="overflow-visible"
+                        renderItem={({item})=>{
+                          return(
+                            <TouchableOpacity
+                              style={{backgroundColor: 'rgba(0,0,0,0.07)'}}
+                            >
+                              <Text>{item.title}</Text>
+                            </TouchableOpacity>
+                          )
+                        }}
                         />
                         
                   </View>

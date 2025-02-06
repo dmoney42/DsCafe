@@ -52,3 +52,5 @@ export const coffeeItems = [
 
 
 ]
+
+export default { categories, coffeeItems };

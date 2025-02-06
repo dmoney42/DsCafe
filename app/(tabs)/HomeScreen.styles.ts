@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
       // Search bar styles
       searchBarWrap: {
         marginHorizontal: 20, // mx-5 (assuming 1rem = 4px)
-        marginTop: 20, // mt-4 (assuming 1rem = 4px)
+        marginTop: 20, 
       },
 
       searchBarContainer: {
@@ -69,6 +69,12 @@ const styles = StyleSheet.create({
         padding: 4, // Assuming 1rem = 16px
         fontWeight: '600',
         color: '#495057', // Common color for gray-700 in Tailwind
+      },
+
+
+      categoriesWrap: {
+        paddingHorizontal: 20, // px-5 (assuming 1rem = 4px)
+        marginTop: 24, // mt-6 (assuming 1rem = 4px)
       }
 
   });
