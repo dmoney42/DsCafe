@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, FlatList} from 'react-native';
 import styles from './HomeScreen.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,6 +7,8 @@ import {BellIcon} from 'react-native-heroicons/outline';
 import {categories} from '../data/index';
 
 const HomeScreen = () => {
+
+  const [activeCategroy, setActiveCategory] = useState(1);
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/images/coffee-bean-background.png')}
@@ -42,17 +44,23 @@ const HomeScreen = () => {
                   {/* categories*/}
                   <View style={styles.categoriesWrap}>
                       <FlatList
+                        style={styles.categoryButtonFlatList}
                         horizontal
                         showsHorizontalScrollIndicator={false}
                         data={categories}
                         keyExtractor={item=> item.id}
                         //className="overflow-visible"
                         renderItem={({item})=>{
+
+                          let isActive = item.id==activeCategroy;
+                          let activeTextClass = isActive ? styles.activeCategoryButtonText : styles.notActiveCategoryButtonText;
+
                           return(
                             <TouchableOpacity
-                              style={{backgroundColor: 'rgba(0,0,0,0.07)'}}
+                              onPress={()=>{setActiveCategory(item.id)}}
+                              style={[styles.categoryButtons,{backgroundColor: isActive? 'brown' : 'rgba(0,0,0,0.07)'}]}
                             >
-                              <Text>{item.title}</Text>
+                              <Text style={styles.categoryButtonText}>{item.title}</Text>
                             </TouchableOpacity>
                           )
                         }}

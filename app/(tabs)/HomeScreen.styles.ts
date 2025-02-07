@@ -75,6 +75,36 @@ const styles = StyleSheet.create({
       categoriesWrap: {
         paddingHorizontal: 20, // px-5 (assuming 1rem = 4px)
         marginTop: 24, // mt-6 (assuming 1rem = 4px)
+      },
+
+      categoryButtonFlatList: {
+        overflow: 'visible', 
+      },
+
+      categoryButtons: {
+       // backgroundColor: 'rgba(0,0,0,0.07)',
+        padding: 16,
+        paddingHorizontal: 20, // px-5 (assuming 1rem = 4px)
+        borderRadius: 50, // rounded-full (assuming 1rem = 10px for a circle)
+        marginRight: 8, // mr-2 (assuming 1rem = 4px)
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.35)', // Using boxShadow     
+      },
+
+      categoryButtonText: {
+        fontWeight: '600', // semibold
+      },
+
+      activeCategoryButton: {
+
+      },
+
+      activeCategoryButtonText: {
+        color: '#ffffff',
+      },
+
+      notActiveCategoryButtonText: {
+
+        color: '#495057',
       }
 
   });
