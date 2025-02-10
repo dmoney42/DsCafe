@@ -41,7 +41,7 @@ export const coffeeItems = [
 
     {
         id: 2,
-        name: 'Black Coffee',
+        name: 'Brown Coffee',
         price: '25.50',
         volume: '116 ml',
         stars: '4.6',

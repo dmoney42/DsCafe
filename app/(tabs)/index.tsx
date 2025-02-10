@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, FlatList} from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, FlatList, Dimensions} from 'react-native';
 import styles from './HomeScreen.styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {MagnifyingGlassIcon, MapPinIcon} from 'react-native-heroicons/solid';
 import {BellIcon} from 'react-native-heroicons/outline';
 import {categories} from '../data/index';
+import {coffeeItems} from '../data/index';
+import ReanimatedCarousel from 'react-native-reanimated-carousel';
+import CoffeeCard from '../../components/CoffeeCard';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const HomeScreen = () => {
 
   const [activeCategroy, setActiveCategory] = useState(1);
+
+
+  console.log("The style for coffee cards wrap is:", styles.coffeeCardsWrap);
+
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/images/coffee-bean-background.png')}
@@ -58,19 +66,35 @@ const HomeScreen = () => {
                           return(
                             <TouchableOpacity
                               onPress={()=>{setActiveCategory(item.id)}}
-                              style={[styles.categoryButtons,{backgroundColor: isActive? 'brown' : 'rgba(0,0,0,0.07)'}]}
+                              style={[styles.categoryButtons,{backgroundColor: isActive? '#C27D48' : 'rgba(0,0,0,0.07)'}]}
                             >
                               <Text style={styles.categoryButtonText}>{item.title}</Text>
                             </TouchableOpacity>
                           )
                         }}
                         />
-                        
+                     
                   </View>
-
-                  <View></View>
-
-          
+                  
+                  {/*Coffee Carousel */}
+                  <View style={styles.coffeeCarouselWrap}> {/* ✅ Ensure proper height */}
+                    
+                    <ReanimatedCarousel
+                      loop
+                      width={340} // ✅ Equivalent to sliderWidth
+                      height={260} // ✅ Equivalent to itemWidth
+                      data={coffeeItems}
+                      scrollAnimationDuration={500}
+                      mode="parallax"
+                      pagingEnabled // ✅ Ensures only one item is visible at a time
+                      snapEnabled // ✅ Snaps items into place 
+                      scrollEnabled // ✅ Enables swiping                     
+                      style={styles.coffeeCarouselCardsContainer}
+                      renderItem={({ item }) => <CoffeeCard item={item} />}
+                    />
+                    
+                  </View>
+        
           </SafeAreaView>
 
 

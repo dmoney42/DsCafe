@@ -105,6 +105,21 @@ const styles = StyleSheet.create({
       notActiveCategoryButtonText: {
 
         color: '#495057',
+      },
+
+
+      coffeeCarouselWrap: {
+        display: 'flex',
+        marginTop: 50, // mt-16 (assuming 1rem = 4px)
+        paddingVertical: 8, // py-2 (assuming 1rem = 4px)         
+        justifyContent: 'center', // ✅ Centers items vertically
+        alignItems: 'center', // ✅ Centers items horizontally
+        width: '100%', // ✅ Full width ensures items are centered
+      },
+
+      coffeeCarouselCardsContainer: {
+        display: 'flex',
+        overflow: 'visible'
       }
 
   });
