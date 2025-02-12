@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
 
       coffeeCarouselWrap: {
         display: 'flex',
-        marginTop: 50, // mt-16 (assuming 1rem = 4px)
+        marginTop: 70, // mt-16 (assuming 1rem = 4px)
         paddingVertical: 8, // py-2 (assuming 1rem = 4px)         
         justifyContent: 'center', // ✅ Centers items vertically
         alignItems: 'center', // ✅ Centers items horizontally

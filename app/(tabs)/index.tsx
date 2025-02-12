@@ -79,19 +79,14 @@ const HomeScreen = () => {
                   {/*Coffee Carousel */}
                   <View style={styles.coffeeCarouselWrap}> {/* ✅ Ensure proper height */}
                     
-                    <ReanimatedCarousel
-                      loop
-                      width={340} // ✅ Equivalent to sliderWidth
-                      height={260} // ✅ Equivalent to itemWidth
-                      data={coffeeItems}
-                      scrollAnimationDuration={500}
-                      mode="parallax"
-                      pagingEnabled // ✅ Ensures only one item is visible at a time
-                      snapEnabled // ✅ Snaps items into place 
-                      scrollEnabled // ✅ Enables swiping                     
-                      style={styles.coffeeCarouselCardsContainer}
-                      renderItem={({ item }) => <CoffeeCard item={item} />}
-                    />
+                  <FlatList
+                    data={coffeeItems.filter(item => item.id === activeCategroy)} // ✅ Show only selected category
+                    keyExtractor={(item) => item.id.toString()} // ✅ Unique key for each item
+                    showsVerticalScrollIndicator={false} // ✅ Hides scrollbar for cleaner UI
+                    contentContainerStyle={{ paddingBottom: 100 }} // ✅ Prevents bottom cut-off
+                    style={{ flexGrow: 1 }}
+                    renderItem={({ item }) => <CoffeeCard item={item} />} // ✅ Display each CoffeeCard
+                  />
                     
                   </View>
         
