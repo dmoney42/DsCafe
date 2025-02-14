@@ -15,7 +15,7 @@ const HomeScreen = () => {
   const [activeCategroy, setActiveCategory] = useState(1);
 
 
-  console.log("The style for coffee cards wrap is:", styles.coffeeCardsWrap);
+  //console.log("The style for coffee cards wrap is:", styles.coffeeCardsWrap);
 
   return (
     <View style={styles.container}>
