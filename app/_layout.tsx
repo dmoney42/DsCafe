@@ -14,9 +14,9 @@ export default function RootLayout() {
 
   return (
     <>
-      {/* ✅ Keep NavigationContainer here */}
+      <StatusBar style="auto" />  
       <AppNavigation />  
-      <StatusBar style="auto" />
+      
     </>
 
     

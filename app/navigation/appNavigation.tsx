@@ -8,6 +8,7 @@ import navigationStyles from "./appNavigation.styles";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeIcon as HomeOutline, HeartIcon as HeartOutline, ShoppingBagIcon as BagOutline } from "react-native-heroicons/outline";
 import { HomeIcon as HomeSolid, HeartIcon as HeartSolid, ShoppingBagIcon as BagSolid } from "react-native-heroicons/solid";
+import ProductScreen from "../(tabs)/ProductScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,9 +37,9 @@ function HomeTabs(){
                 }
             })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} options={{title: "HomeTab"}}/>
-            <Tab.Screen name="Favorite" component={HomeScreen} />
-            <Tab.Screen name="Cart" component={HomeScreen} />
+            <Tab.Screen name="Shop" component={HomeScreen} options={{title: "Shop"}}/>
+            <Tab.Screen name="Favorite" component={FavoriteScreen} />
+            <Tab.Screen name="Cart" component={CartScreen} />
         </Tab.Navigator>
     )
 }
@@ -50,7 +51,7 @@ export default function AppNavigation() {
                 contentStyle: {backgroundColor: 'white'}
             }}>
                 <Stack.Screen name="Main" options={{headerShown: false}} component={HomeTabs} />
-
+                <Stack.Screen name="Product" options={{headerShown: false}} component={ProductScreen} />            
             </Stack.Navigator>
        
     )
@@ -58,10 +59,10 @@ export default function AppNavigation() {
 
 
 const menuIcons = (route, focused) =>{
-    console.log("The value of route is: " + JSON.stringify(route));
-    console.log("The value of focused is: " + focused);
+    //console.log("The value of route is: " + JSON.stringify(route));
+    //console.log("The value of focused is: " + focused);
     let icon; 
-    if(route.name=="Home"){
+    if(route.name=="Shop"){
         icon = focused? <HomeSolid size="30" color= "#C27D48" /> : <HomeOutline size="30" strokeWidth={2} color="white" />
     }else if(route.name=="Favorite"){
         icon = focused? <HeartSolid size="30" color= "#C27D48" /> : <HeartOutline size="30" strokeWidth={2} color="white" />
@@ -69,10 +70,19 @@ const menuIcons = (route, focused) =>{
         icon = focused? <BagSolid size="30" color= "#C27D48" /> : <BagOutline size="30" strokeWidth={2} color="white" />
     }
 
-    let buttonClass = focused ? navigationStyles.navigationButtonActive: '';
+    let buttonClass = focused ? navigationStyles.navigationButtonActive: {};
     return(
         <View style={[navigationStyles.navigationWrap, buttonClass]}>
-            {icon}
+            <Text>{icon}</Text>
         </View>
     )
-} //style={[styles.categoryButtons,{backgroundColor: isActive? '#C27D48' : 'rgba(0,0,0,0.07)'}]}
+} 
+
+
+const FavoriteScreen = () => (
+    <View><Text>Favorite Screen</Text></View>
+);
+
+const CartScreen = () => (
+    <View><Text>Cart Screen</Text></View>
+);

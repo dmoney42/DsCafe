@@ -31,10 +31,10 @@ const HomeScreen = () => {
                     <Image source={require('../../assets/images/empty-avatar.png')} style={styles.avatar}/>
 
                       <View style={styles.currentlocationWrap}>
-                        <MapPinIcon size={25}/>
+                        <Text><MapPinIcon size={25}/></Text>
                         <Text style={styles.currentLocation}>Palm Coast, FL</Text>
                       </View>
-                      <BellIcon size="27"/>
+                      <Text><BellIcon size="27"/></Text>
                   </View>
 
 
@@ -79,14 +79,14 @@ const HomeScreen = () => {
                   {/*Coffee Carousel */}
                   <View style={styles.coffeeCarouselWrap}> {/* ✅ Ensure proper height */}
                     
-                  <FlatList
-                    data={coffeeItems.filter(item => item.id === activeCategroy)} // ✅ Show only selected category
-                    keyExtractor={(item) => item.id.toString()} // ✅ Unique key for each item
-                    showsVerticalScrollIndicator={false} // ✅ Hides scrollbar for cleaner UI
-                    contentContainerStyle={{ paddingBottom: 100 }} // ✅ Prevents bottom cut-off
-                    style={{ flexGrow: 1 }}
-                    renderItem={({ item }) => <CoffeeCard item={item} />} // ✅ Display each CoffeeCard
-                  />
+                      <FlatList
+                        data={coffeeItems.filter(item => item.id === activeCategroy)} // ✅ Show only selected category
+                        keyExtractor={(item) => String(item.id)} // ✅ Unique key for each item
+                        showsVerticalScrollIndicator={false} // ✅ Hides scrollbar for cleaner UI
+                        contentContainerStyle={{ paddingBottom: 100 }} // ✅ Prevents bottom cut-off
+                        style={{ flexGrow: 1 }}
+                        renderItem={({ item }) => <CoffeeCard item={item} />} // ✅ Display each CoffeeCard
+                      />
                     
                   </View>
         

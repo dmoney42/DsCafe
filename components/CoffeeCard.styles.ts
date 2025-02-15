@@ -22,10 +22,12 @@ const coffeeCardStyles = StyleSheet.create({
         height: 140, // h-40 (assuming 1rem = 4px)
         width: 140, // w-40 (assuming 1rem = 4px)
         borderRadius: 90, // ✅ Ensures rounded corners  
+        /*
         shadowColor: 'black',
         shadowRadius: 40,
         shadowOffset: {width: 0, height: 10},
         shadowOpacity: 0.7,
+        */
         backgroundColor: 'transparent',
         /*
         boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.8)', // ✅ New Box Shadow

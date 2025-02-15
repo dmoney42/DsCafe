@@ -1,13 +1,14 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import coffeeCardStyles from './ui/CoffeeCard.styles';
+import coffeeCardStyles from './CoffeeCard.styles';
 import { PlusIcon, StarIcon } from 'react-native-heroicons/solid';
+import { useNavigation } from '@react-navigation/native';
 
 export default function CoffeeCard({item}){
+
+  const navigation = useNavigation();
   return (
-    
-
-
+  
         <View style={coffeeCardStyles.coffeeCardWrap}> 
           <View style={coffeeCardStyles.coffeeCardShadow}>
             <Image style={coffeeCardStyles.coffeeCardImage} source={item.image}/>
@@ -19,7 +20,7 @@ export default function CoffeeCard({item}){
                 </Text>
 
                 <View style={coffeeCardStyles.reviewsWrap}>
-                  <StarIcon size="15" color="white" />
+                  <Text><StarIcon size="15" color="white" /></Text>
                   <Text style={coffeeCardStyles.reviewStars}>{item.stars}</Text>
                 </View>
 
@@ -30,8 +31,12 @@ export default function CoffeeCard({item}){
 
                 <View style={coffeeCardStyles.priceWrap}>
                   <Text style={coffeeCardStyles.priceText}>${item.price}</Text>
-                  <TouchableOpacity style={coffeeCardStyles.plusIconWrap}>
-                    <PlusIcon size="25" strokeWidth={2} color="brown"/>
+                  <TouchableOpacity 
+                    onPress={()=>{
+                      navigation.navigate('Product', {...item})
+                    }}
+                    style={coffeeCardStyles.plusIconWrap}>
+                    <Text><PlusIcon size="25" strokeWidth={2} color="brown"/></Text>
                   </TouchableOpacity>
                 </View>
 
