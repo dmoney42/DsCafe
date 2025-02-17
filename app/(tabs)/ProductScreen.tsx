@@ -1,5 +1,5 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import productStyles from './ProductScreen.styles';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -10,6 +10,10 @@ import { HeartIcon, StarIcon } from 'react-native-heroicons/solid';
 export default function ProductScreen(props) {
     const item = props.route.params;
     const navigation = useNavigation();
+    const [size, setSize] = useState('small');
+
+    console.log("The current size selected is: " + size);
+
   return (
     <View style={productStyles.productDetailWrap}>
       <StatusBar style="light" />
@@ -48,8 +52,51 @@ export default function ProductScreen(props) {
             <Text style={productStyles.coffeeSizeText}>
                 Coffee Size
             </Text>
+
+            <View style={productStyles.coffeeSizeContainer}>
+
+                <TouchableOpacity 
+                    style={[productStyles.coffeeSizeButton, size=="small" ? productStyles.activeSizeButton : productStyles.notActiveSizeButton]}
+                    onPress={()=> setSize('small')}
+                >
+                    <Text style={[size=='small'? productStyles.activeSizeButtonText : productStyles.notActiveSizeButtonText]}>Small</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                    style={[productStyles.coffeeSizeButton, size=="medium" ? productStyles.activeSizeButton : productStyles.notActiveSizeButton]}
+                    onPress={()=> setSize('medium')}
+                >
+                    <Text style={[size=='medium'? productStyles.activeSizeButtonText : productStyles.notActiveSizeButtonText]}>Medium</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                    style={[productStyles.coffeeSizeButton, size=="large" ? productStyles.activeSizeButton : productStyles.notActiveSizeButton]}
+                    onPress={()=> setSize('large')}
+                >
+                    <Text style={[size=='large'? productStyles.activeSizeButtonText : productStyles.notActiveSizeButtonText]}>Large</Text>
+                </TouchableOpacity>
+
+                                               
+            </View>
+
         </View>
 
+        <View style={productStyles.productAboutWrap}>
+
+            <Text style={productStyles.productAboutTitle}>
+                About
+            </Text>
+
+            <Text style={productStyles.productAboutDescription}>
+                {item.desc}
+            </Text>
+        </View>
+
+        <View style={productStyles.volumeWrap}>
+            <View style={productStyles.volumeContainer}>
+                <Text style={productStyles.volumeContainerTitle}>Volume</Text>
+            </View>
+        </View>
 
       </SafeAreaView>
     </View>

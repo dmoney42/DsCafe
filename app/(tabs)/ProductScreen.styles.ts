@@ -41,8 +41,8 @@ const productStyles = StyleSheet.create({
     },
 
     coffeeImage: {
-        height: 250,
-        width: 285,
+        height: 150,
+        width: 185,
     },
 
     reviewContainer: {
@@ -93,7 +93,84 @@ const productStyles = StyleSheet.create({
         color: '#724015',
         fontSize: 18, // Assuming 1rem = 18px for text-lg
         fontWeight: 'bold',
-    }
+    },
+
+    coffeeSizeContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+
+    coffeeSizeButton: {
+        padding: 12,
+        paddingLeft: 32,
+        paddingRight: 32,
+        borderRadius: 9999,
+        
+    },
+
+    activeSizeButton: {
+        backgroundColor: 'rgb(194, 125, 72)',
+        
+    },
+
+    notActiveSizeButton: {
+        backgroundColor: 'rgba(0,0,0,0.07)',
+    },
+
+    activeSizeButtonText: {
+        color: 'white',
+    },
+
+    notActiveSizeButtonText: {
+        color: '#111827', // Assuming a common gray-700 color
+    },
+
+
+    productAboutWrap: {
+        marginLeft: 16, //the margin left and right seen to the left is for the tailwind style mx-4
+        marginRight: 16,
+        marginVertical: 8, //space-y-2 in tailwind
+        height: 112,
+
+    },
+
+    productAboutTitle: {
+        color: '#475569', // Assuming a common gray-600 color
+        fontSize: 18, // Assuming 1rem = 18px for tailwind property called text-lg
+        fontWeight: 'bold',
+    },
+
+    productAboutDescription: {
+        color: '#475569', // Assuming a common gray-600 color       
+    },
+
+
+    volumeWrap: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginLeft: 16,
+        marginRight: 16,
+        marginBottom: 8,
+    },
+
+    volumeContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginHorizontal: 4,
+    },
+
+    volumeContainerTitle: {
+        fontSize: 16, // Assuming 1rem = 16px for text-base
+        color: '#111827', // Assuming a common gray-700 color
+        fontWeight: 600,
+        opacity: 0.6,
+        
+    },
+ 
 
 });
 
