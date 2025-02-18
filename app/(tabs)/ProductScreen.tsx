@@ -1,10 +1,10 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, Touchable } from 'react-native'
 import React, { useState } from 'react'
 import productStyles from './ProductScreen.styles';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { ArrowLeftCircleIcon } from 'react-native-heroicons/outline';
+import { ArrowLeftCircleIcon, MinusIcon, PlusIcon, ShoppingBagIcon } from 'react-native-heroicons/outline';
 import { HeartIcon, StarIcon } from 'react-native-heroicons/solid';
 
 export default function ProductScreen(props) {
@@ -82,7 +82,6 @@ export default function ProductScreen(props) {
         </View>
 
         <View style={productStyles.productAboutWrap}>
-
             <Text style={productStyles.productAboutTitle}>
                 About
             </Text>
@@ -92,11 +91,42 @@ export default function ProductScreen(props) {
             </Text>
         </View>
 
+
         <View style={productStyles.volumeWrap}>
             <View style={productStyles.volumeContainer}>
-                <Text style={productStyles.volumeContainerTitle}>Volume</Text>
+                <Text style={productStyles.volumeContainerTitle}>Volume </Text>
+
+                <Text style={productStyles.volumeAmount}>{item.volume}</Text>
+            </View>
+
+            <View style={productStyles.plusMinusContainer}>
+                <TouchableOpacity style={productStyles.plusMinusButton}>
+                    <MinusIcon size="20" strokeWidth={3} color="#475569"/>
+                </TouchableOpacity>
+
+                <Text style={productStyles.volumeQuantityText}>2</Text>
+
+                <TouchableOpacity style={productStyles.plusMinusButton}>
+                    <PlusIcon size="20" strokeWidth={3} color="#475569"/>
+                </TouchableOpacity>
+
             </View>
         </View>
+
+        {/* buy button */}
+        <View style={productStyles.checkoutWrap}>
+            <TouchableOpacity style={productStyles.shoppingBagIcon}>
+                <ShoppingBagIcon size="30" color="gray" />
+            </TouchableOpacity>
+
+
+            <TouchableOpacity style={productStyles.buyNowButton}>
+                <Text style={productStyles.buyNowButtonText}>Buy Now</Text>
+            </TouchableOpacity>
+        </View>
+
+ 
+
 
       </SafeAreaView>
     </View>

@@ -134,6 +134,8 @@ const coffeeCardStyles = StyleSheet.create({
         borderRadius: 9999, // Effectively creates a circle
     },
 
+
+
 });
 
 export default coffeeCardStyles;

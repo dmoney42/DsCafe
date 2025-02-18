@@ -65,7 +65,7 @@ const productStyles = StyleSheet.create({
     },
 
     priceContainer: {
-        marginVertical: 16,
+        marginVertical: 2,
         display: 'flex',
         flexDirection: 'row', //
         justifyContent: 'space-between', //justify-between in tailwind
@@ -85,7 +85,7 @@ const productStyles = StyleSheet.create({
     },
 
     coffeeSizeWrap:{
-        marginVertical: 16,
+        marginVertical: 14,
         marginHorizontal: 8,
     },
 
@@ -130,7 +130,7 @@ const productStyles = StyleSheet.create({
     productAboutWrap: {
         marginLeft: 16, //the margin left and right seen to the left is for the tailwind style mx-4
         marginRight: 16,
-        marginVertical: 8, //space-y-2 in tailwind
+        marginVertical: 6, //space-y-2 in tailwind
         height: 112,
 
     },
@@ -169,6 +169,69 @@ const productStyles = StyleSheet.create({
         fontWeight: 600,
         opacity: 0.6,
         
+    },
+
+    volumeAmount: {
+        fontSize: 16,
+        color: '#000',
+        fontWeight: 600,
+    },
+
+    plusMinusContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderWidth: 2,
+        borderColor: '#475569',
+        borderRadius: 9999,
+        padding: 4,
+        paddingLeft: 16,
+        paddingRight: 16,
+        
+    },
+
+    plusMinusButton: {
+        marginHorizontal: 8,
+    },
+
+    volumeQuantityText: {
+
+        fontSize: 14,
+        fontWeight: '900', // font-extrabold
+
+    },
+
+    checkoutWrap: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginVertical: 16,
+        padding: 10,
+    },
+
+    shoppingBagIcon: {
+        padding: 16,
+        borderRadius: 9999,
+        borderWidth: 2,
+        borderColor: '#475569',
+    },
+
+
+    buyNowButton: {
+        padding: 16,
+        borderRadius: 9999,
+        flex: 1,
+        marginLeft: 12, // ml-3 (assuming 1rem = 4px)
+        backgroundColor: 'rgb(194, 125, 72)',
+    },
+
+
+    buyNowButtonText: {
+        textAlign: 'center',
+        fontSize: 14,
+        fontWeight: 600,   
+        color: 'white', 
     },
  
 
